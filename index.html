@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Header with Logo and Navigation</title>
+          <link rel="stylesheet" href="styles.css">
+      </head>
+      <body>
+          <header>
+              <style>
+              .container {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0;
+          }
+          
+          .logo img {
+              height: 100px;
+              width: 100px;
+          }
+          nav ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              font-size: xx-large;
+          }
+          
+          nav ul li {
+              margin-left: 0px;
+          }
+          
+          nav ul li a {
+              color: beige;
+              text-decoration: none;
+              padding: 5px 10px;
+          }
+          
+          nav ul li a:hover {
+              background-color: blue;
+              border-radius: 5px;
+          }    
+          </style>
+              <div class="container">
+                  <div class="logo">
+                      <img src="logo-color.png" alt="Logo">
+                  </div>
+                  <nav>
+                      <ul>
+                          <li><a href="index.html">Home</a></li>
+                          <li><a href="about.html">About</a></li>
+                          <li><a href="service.html">Services</a></li>
+                          <li><a href="contact.html">Contact</a></li>
+                      </ul>
+                  </nav>
+              </div>
+          </header>
+          <style>
+              body {
+                background-image: url(Hope\ B&W\ Background.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                line-height: 2.2; 
+              }
+              </style>
+
+    <style>
+  body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  
+  .openbtn:hover {
+    background-color: fuchsia;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+  </style>
+  </head>
+  <body>
+  
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="./about.html">About</a>
+    <a href="./service.html">Services</a>
+    <a href="bill.html">Clients</a>
+    <a href="contact.html">Contact</a>
+    <a href="./social login.html">Social login</a>
+    <a href="./register.html">registration</a>
+    
+  </div>
+  
+  <div id="main">
+    <button class="openbtn" onclick="openNav()">☰</button>  
+  </div>
+  
+  <script>
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+  </script><style>
+  body {
+    background-image: url(Hope\ B&W\ Background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    line-height: 2.7; 
+  }
+
+
+body {
+	font-family: Arial, sans-serif;
+}
+
+header {
+	background-color: #333;
+	color: #fff;
+	padding: 1rem;
+	text-align: center;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+nav li {
+	margin-right: 20px;
+}
+
+nav a {
+	color: #fff;
+	text-decoration: none;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem;
+}
+
+h1 {
+	margin-bottom: 1rem;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	margin-bottom: 1rem;
+}
+
+h2 {
+	margin-top: 2rem;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin-bottom: 1rem;
+}
+
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 1rem;
+	text-align: center;
+	clear: both;
+}
+</style>
+<div class="footerNav">
+
+  <ul>
+      <li><a href="">HOME</a></li>
+      <li><a href="">ABOUT</a></li>
+      <li><a href="">CONTACT</a></li>
+      <li><a href="">SERVICE</a></li>
+  </ul>
+</div>
+<div class="footerbottom">
+  <p>Copyright &copy;2024; designed by <span class="designer">NOBUHLE MEYI</span></p>
+</div>
