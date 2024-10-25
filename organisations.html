@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizations - Access Organizations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Our Organizations</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="organizations.html">Organizations</a></li>
+            </ul>
+        </nav>
+    </header>
+    <style>
+        body {
+          background-image: url(OIP.jpeg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          line-height: 2.2; 
+        }
+        </style>
+    <main>
+        <section id="organization-list">
+            <h2>Explore Charitable Organizations</h2>
+            <div class="organization">
+                <h3>Organization 1</h3>
+                <p>A brief description of Organization 1, highlighting its mission and activities.</p>
+                <button onclick="learnMore('Organization 1')">Learn More</button>
+            </div>
+            <div class="organization">
+                <h3>Organization 2</h3>
+                <p>A brief description of Organization 2, highlighting its mission and activities.</p>
+                <button onclick="learnMore('Organization 2')">Learn More</button>
+            </div>
+            <div class="organization">
+                <h3>Organization 3</h3>
+                <p>A brief description of Organization 3, highlighting its mission and activities.</p>
+                <button onclick="learnMore('Organization 3')">Learn More</button>
+            </div>
+            <div class="organization">
+                <h3>Organization 4</h3>
+                <p>A brief description of Organization 4, highlighting its mission and activities.</p>
+                <button onclick="learnMore('Organization 4')">Learn More</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Access Organizations. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #007bff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin: 20px 0;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #007bff;
+}
+
+.organization {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background: #e9f7ff;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+    color: white;
+}
+</style>
+<script>
+
+function learnMore(orgName) {
+    alert('You selected ' + orgName + '. Here you can add logic to redirect or show more information about the organization.');
+    // You can implement the logic to redirect to a detailed page about the organization
+    // For example:
+    // window.location.href = 'organization-details.html?org=' + encodeURIComponent(orgName);
+}
+</script>
