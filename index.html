@@ -9,18 +9,20 @@
 <body>
     <header>
         <h1 style="color: aqua;">HOPE</h1>
+        <marquee>WELCOME TO HOPE</marquee>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="#organizations.html">Organizations</a></li>
+                <li><a href="Donate"></a></li>
             </ul>
         </nav>
     </header>
     <style>
         body {
-          background-image: url(OIP.jpeg);
+          background-image: url(OIP\ \(6\).jpeg);
           background-repeat: no-repeat;
           background-size: cover;
           line-height: 2.2; 
@@ -38,19 +40,22 @@
         <section id="organizations">
             <h2>Our Organizations</h2>
             <div class="organization" onclick="accessOrganization('Org 1')">
-                <h3>Organization 1</h3>
-                <p>A brief description of Organization 1.</p>
+                <h3 style="color: purple;">Fred and Martie Soup Kitchen</h3>
+                <p></p>
+                Fred & Martie’s Soup Kitchen, a registered Public Benefit and Non-Profit Organisation, serves the underprivileged in Claremont, west of Johannesburg, South Africa. Our story began over four decades ago when our parents, Fred and Martie Hughes, recognized the community's needs and took action. Fred, having personally faced poverty, understood the hardships many encountered. In March 1981, when they relocated to Claremont, Johannesburg, they brought along not just their possessions but also a deep sense of empathy and a commitment to making a positive impact.
+                
+                
             </div>
             <div class="organization" onclick="accessOrganization('Org 2')">
-                <h3>Organization 2</h3>
+                <h3 style="color:purple ;">Apostolic Faith Outreach Ministry</h3>
                 <p>A brief description of Organization 2.</p>
             </div>
             <div class="organization" onclick="accessOrganization('Org 3')">
-                <h3>Organization 3</h3>
+                <h3 style="color: purple;">TTT Saloam Bereavement Services</h3>
                 <p>A brief description of Organization 3.</p>
             </div>
             <div class="organization" onclick="accessOrganization('Org 4')">
-                <h3>Organization 4</h3>
+                <h3 style="color: purple;">Hotel Hope</h3>
                 <p>A brief description of Organization 4.</p>
             </div>
         </section>
@@ -159,12 +164,137 @@ footer {
 <script>
 
 function accessOrganization(orgName) {
-    alert('Accessing ' + orgName + '...');
+    ('Accessing ' + orgName + '...');
     // Here , you can implement the logic to access the selected organization
 }
 
 document.getElementById('exploreButton').addEventListener('click', function() {
-    alert('Exploring organizations...');
+    ('Exploring organizations...');
     // Here, you can implement the logic to explore organizations
 });
 </script>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+    <div style="max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        <h1 style="text-align: center;">CONTACT US</h1>
+        <form id="userForm" style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="hidden" id="userId"> <!-- Hidden input for user ID -->
+            <input type="text" id="name" placeholder="Enter name" required style="padding: 10px; font-size: 16px;">
+            <input type="email" id="email" placeholder="Enter email" required style="padding: 10px; font-size: 16px;">
+            <button type="submit" style="padding: 10px; font-size: 16px; background-color: #28a745; color: white; border: none; cursor: pointer; border-radius: 5px;">Add User</button>
+        </form>
+        <h2 style="text-align: center;">Users List</h2>
+        <ul id="userList" style="list-style-type: none; padding: 0;"></ul>
+    </div>
+
+    <script>
+        // Handle form submission for adding or updating a user
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const userId = document.getElementById('userId').value;
+
+            if (userId) {
+                // Update user
+                fetch(`http://localhost:3000/users/${userId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('User updated:', data);
+                    fetchUsers(); // Refresh user list
+                    resetForm();
+                })
+                .catch(error => console.error('Error:', error));
+            } else {
+                // Add new user
+                fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('User added:', data);
+                    addUserToList(data);
+                    resetForm();
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        });
+
+        // Function to fetch and display users
+        function fetchUsers() {
+            fetch('http://localhost:3000/users')
+                .then(response => response.json())
+                .then(users => {
+                    const userList = document.getElementById('userList');
+                    userList.innerHTML = ''; // Clear existing list
+                    users.forEach(user => addUserToList(user));
+                })
+                .catch(error => console.error('Error fetching users:', error));
+        }
+
+        // Function to add user to the list
+        function addUserToList(user) {
+            const userList = document.getElementById('userList');
+            const li = document.createElement('li');
+            li.textContent = `${user.name} - ${user.email}`;
+            li.style.padding = '10px';
+            li.style.border = '1px solid #ddd';
+            li.style.margin = '5px 0';
+
+            // Add update and delete buttons
+            const updateButton = document.createElement('button');
+            updateButton.textContent = 'Update';
+            updateButton.style.marginLeft = '10px';
+            updateButton.onclick = () => editUser(user);
+            li.appendChild(updateButton);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.style.marginLeft = '10px';
+            deleteButton.onclick = () => deleteUser(user.id);
+            li.appendChild(deleteButton);
+
+            userList.appendChild(li);
+        }
+
+        // Function to edit user
+        function editUser(user) {
+            document.getElementById('userId').value = user.id;
+            document.getElementById('name').value = user.name;
+            document.getElementById('email').value = user.email;
+        }
+
+        // Function to delete user
+        function deleteUser(userId) {
+            fetch(`http://localhost:3000/users/${userId}`, {
+                method: 'DELETE',
+            })
+            .then(() => {
+                console.log('User deleted');
+                fetchUsers(); // Refresh user list
+            })
+            .catch(error => console.error('Error deleting user:', error));
+        }
+
+        // Function to reset the form
+        function resetForm() {
+            document.getElementById('userId').value = '';
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+        }
+
+        // Initial fetch to get users on page load
+        fetchUsers();
+    </script>
+</body>
+</html>

@@ -30,19 +30,137 @@
 
         <section id="contact-form">
             <h2>Contact Form</h2>
-            <form id="form" onsubmit="handleSubmit(event)">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+            <body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+                <div style="max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+                    <h1 style="text-align: center;">CONTACT US</h1>
+                    <form id="userForm" style="display: flex; flex-direction: column; gap: 10px;">
+                        <input type="hidden" id="userId"> <!-- Hidden input for user ID -->
+                        <input type="text" id="name" placeholder="Enter fullname" required style="padding: 10px; font-size: 16px;">
+                        <input type="email" id="email" placeholder="Enter email" required style="padding: 10px; font-size: 16px;">
+                        <input type="email" id="email" placeholder="Enter phonenumber" required style="padding: 10px; font-size: 16px;">
+                        <input type="email" id="email" placeholder="Enter message" required style="padding: 10px; font-size: 16px;">
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-            <div id="form-response"></div>
+                        <button type="submit" style="padding: 10px; font-size: 16px; background-color: #28a745; color: white; border: none; cursor: pointer; border-radius: 5px;">send message</button>
+                    </form>
+                    <h2 style="text-align: center;">Users List</h2>
+                    <ul id="userList" style="list-style-type: none; padding: 0;"></ul>
+                </div>
+            
+                <script>
+                    // Handle form submission for adding or updating a user
+                    document.getElementById('userForm').addEventListener('submit', function(event) {
+                        event.preventDefault();
+            
+                        const name = document.getElementById('name').value;
+                        const email = document.getElementById('email').value;
+                        const message = document.getElementById('message').value;
+                        const phonenumber = document.getElementById('phonenumber').value;
+            
+            
+                        if (userId) {
+                            // Update user
+                            fetch(`http://localhost:3000/contact/${contact}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ name, email, message, contactnumber }),
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('contact updated:', data);
+                                fetchContacts(data); // Refresh contact list
+                                resetForm();
+                            })
+                            .catch(error => console.error('Error:', error));
+                        } else {
+                            // Add new contact
+                            fetch('http://localhost:3000/contact', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ name, email, message, contactnumber }),
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('contact added:', data);
+                                addContactToList(data);
+                                resetForm();
+                            })
+                            .catch(error => console.error('Error:', error));
+                        }
+                    });
+            
+                    // Function to fetch and display contact
+                    function fetchContacts() {
+                        fetch('http://localhost:3000/contact')
+                            .then(response => response.json())
+                            .then(users => {
+                                const contactList = document.getElementById('contactList');
+                                userList.innerHTML = ''; // Clear existing list
+                                users.forEach(contact => addContactToList(contact));
+                            })
+                            .catch(error => console.error('Error fetching contact:', error));
+                    }
+            
+                    // Function to add user to the list
+                    function addUserToList(user) {
+                        const userList = document.getElementById('userList');
+                        const li = document.createElement('li');
+                        li.textContent = `${user.name} - ${user.email}`;
+                        li.style.padding = '10px';
+                        li.style.border = '1px solid #ddd';
+                        li.style.margin = '5px 0';
+            
+                        // Add update and delete buttons
+                        const updateButton = document.createElement('button');
+                        updateButton.textContent = 'Update';
+                        updateButton.style.marginLeft = '10px';
+                        updateButton.onclick = () => editUser(user);
+                        li.appendChild(updateButton);
+            
+                        const deleteButton = document.createElement('button');
+                        deleteButton.textContent = 'Delete';
+                        deleteButton.style.marginLeft = '10px';
+                        deleteButton.onclick = () => deleteUser(user.id);
+                        li.appendChild(deleteButton);
+            
+                        userList.appendChild(li);
+                    }
+            
+                    // Function to edit user
+                    function editUser(user) {
+                        document.getElementById('userId').value = user.id;
+                        document.getElementById('name').value = user.name;
+                        document.getElementById('email').value = user.email;
+                    }
+            
+                    // Function to delete user
+                    function deleteUser(userId) {
+                        fetch(`http://localhost:3000/users/${userId}`, {
+                            method: 'DELETE',
+                        })
+                        .then(() => {
+                            console.log('User deleted');
+                            fetchUsers(); // Refresh user list
+                        })
+                        .catch(error => console.error('Error deleting user:', error));
+                    }
+            
+                    // Function to reset the form
+                    function resetForm() {
+                        document.getElementById('userId').value = '';
+                        document.getElementById('name').value = '';
+                        document.getElementById('email').value = '';
+                    }
+            
+                    // Initial fetch to get users on page load
+                    fetchUsers();
+                </script>
+            </body>
+            </html>
         </section>
 
         <section id="map">
