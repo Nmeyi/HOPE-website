@@ -14,7 +14,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="organizations.html">Organizations</a></li>
+                <li><a href="organization.html">Organizations</a></li>
             </ul>
         </nav>
     </header>
@@ -30,24 +30,32 @@
         <section id="organization-list">
             <h2>Explore Charitable Organizations</h2>
             <div class="organization">
-                <h3>Organization 1</h3>
-                <p>A brief description of Organization 1, highlighting its mission and activities.</p>
-                <button onclick="learnMore('Organization 1')">Learn More</button>
+                <h3>Fred and Martie’s soupkitchen</h3>
+                <p>
+                    Fred & Martie’s Soup Kitchen, a recognized Public Benefit and Non-Profit Organization, is committed to aiding the underprivileged in Claremont, west of Johannesburg, South Africa. Over 43 years ago, Fred and Martie Hughes, motivated by their own experiences with poverty, identified a pressing need in the community and decided to take action. When they moved to Claremont in March 1981, they brought with them both their belongings and a deep compassion and commitment to make a positive change.
+
+The initiative began modestly with Martie feeding children from a small table outside their home, using sample packs of soya mince provided by Fred’s workplace. What started as a simple act of kindness rapidly expanded as more people sought assistance, revealing the vast need within the community. Martie was driven by her own experiences of poverty, understanding the pain of hunger all too well.
+
+On the first day, five children came to eat. By the third day, the number surged to 200, leading to congestion that even required traffic management. Martie’s dedication and love for her community resulted in hundreds being nourished and uplifted. For many years, the community looked to Fred and Martie not just for sustenance but for hope and support.
+
+After Martie’s passing in February 2008, her wish for the continued care of the children was honored by her daughter, Yolindie, who took over the operations as Fred’s health declined. Yolindie vowed to continue Martie’s legacy, ensuring that no child would be forgotten or go hungry. Today, Fred & Martie’s Soup Kitchen remains steadfast in its mission, continuing to serve the community with the same passion and love that defined its beginnings.
+                </p>
+                <button clickme="learnMore('Organization 1')">Learn More</button>
             </div>
             <div class="organization">
                 <h3>Organization 2</h3>
                 <p>A brief description of Organization 2, highlighting its mission and activities.</p>
-                <button onclick="learnMore('Organization 2')">Learn More</button>
+                <button clickme="learnMore('Organization 2')">Learn More</button>
             </div>
             <div class="organization">
                 <h3>Organization 3</h3>
                 <p>A brief description of Organization 3, highlighting its mission and activities.</p>
-                <button onclick="learnMore('Organization 3')">Learn More</button>
+                <button clickme="learnMore('Organization 3')">Learn More</button>
             </div>
             <div class="organization">
                 <h3>Organization 4</h3>
                 <p>A brief description of Organization 4, highlighting its mission and activities.</p>
-                <button onclick="learnMore('Organization 4')">Learn More</button>
+                <button clickme="learnMore('Organization 4')">Learn More</button>
             </div>
         </section>
     </main>
@@ -138,7 +146,7 @@ footer {
 <script>
 
 function learnMore(orgName) {
-    alert('You selected ' + orgName + '. Here you can add logic to redirect or show more information about the organization.');
+      alert('clickme Button was clicked!');
     // You can implement the logic to redirect to a detailed page about the organization
     // For example:
     // window.location.href = 'organization-details.html?org=' + encodeURIComponent(orgName);
