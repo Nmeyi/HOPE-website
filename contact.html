@@ -14,11 +14,21 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="#contact-form">Contact</a></li>
+                <li><a href="contact-form">Contact</a></li>
                 <li><a href="organizations.html">Organizations</a></li>
             </ul>
         </nav>
     </header>
+    <style>
+    
+        body {
+        background-image: url(wp2566029.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Optional: For a parallax effect */
+    }
+            </style>
 
     <main>
         <section id="contact-info">
@@ -37,11 +47,8 @@
                         <input type="hidden" id="userId"> <!-- Hidden input for user ID -->
                         <input type="text" id="name" placeholder="Enter fullname" required style="padding: 10px; font-size: 16px;">
                         <input type="email" id="email" placeholder="Enter email" required style="padding: 10px; font-size: 16px;">
-                        <input type="email" id="email" placeholder="Enter phonenumber" required style="padding: 10px; font-size: 16px;">
-                        <input type="email" id="email" placeholder="Enter message" required style="padding: 10px; font-size: 16px;">
-
-
-                        <button type="submit" style="padding: 10px; font-size: 16px; background-color: #28a745; color: white; border: none; cursor: pointer; border-radius: 5px;">send message</button>
+                        <input type="text" id="enter message" placeholder="Enter message" required style="padding: 10px; font-size: 16px;">
+<button type="submit" style="padding: 10px; font-size: 16px; background-color: #28a745; color: white; border: none; cursor: pointer; border-radius: 5px;">send message</button>
                     </form>
                     <h2 style="text-align: center;">Users List</h2>
                     <ul id="userList" style="list-style-type: none; padding: 0;"></ul>

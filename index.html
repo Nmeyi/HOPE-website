@@ -10,20 +10,24 @@
     <header style="color: antiquewhite">
         <h1>HOPE</h1>
         <marquee style="font-size: xx-large;">WELCOME TO HOPE</marquee>
+
+        <div class="container">
+            <div class="logo">
+                <img src="462585963_1467895320547756_3557671448933482452_n.jpg" width="150px"; height="150px";>
+                </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="organization.html">Organizations</a></li>
-                <li><a href="Donate"></a></li>
             </ul>
         </nav>
     </header>
     <style>
     
     body {
-    background-image: url(WhatsApp\ Image\ 2024-11-19\ at\ 23.02.15_8e74932f.jpg);
+    background-image: url(wp2566029.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -49,15 +53,15 @@
                 
             </div>
             <div class="organization" onclick="accessOrganization('Org 2')">
-                <h3 style="color:purple ;">Kingdom Faith Outreach Ministry</h3>
+                <h3 style="color:black;">Kingdom Faith Outreach Ministry</h3>
                 <p>A brief description of Organization 2.</p>
             </div>
             <div class="organization" onclick="accessOrganization('Org 3')">
-                <h3 style="color: purple;">TTT Lewis Bereavement Services</h3>
+                <h3 style="color: black">TTT Lewis Bereavement Services</h3>
                 <p>A brief description of Organization 3.</p>
             </div>
             <div class="organization" onclick="accessOrganization('Org 4')">
-                <h3 style="color: purple;">Hotel Hope Ministries</h3>
+                <h3 style="color: black;">Hotel Hope Ministries</h3>
                 <p style="color: black;">
 
 Hotel Hope Ministries is a registered non-profit organization in South Africa, dedicated to ensuring that every child is raised in a safe, happy, and healthy environment, allowing them to grow into responsible and positive adults. While children are our primary focus, we adopt a holistic approach to addressing the issue of orphaned and abandoned children. We understand the importance of tackling the root causes of the problem, not just the symptoms. Therefore, we have initiatives aimed at supporting mothers and fathers, helping them care for themselves and their children.
@@ -80,7 +84,7 @@ Hotel Hope Ministries is a registered non-profit organization in South Africa, d
     </main>
 
     <footer>
-        <p>&copy; 2023 Access Organizations. All rights reserved.</p>
+        <p>&copy; 2024 HOPE. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
@@ -95,7 +99,7 @@ body {
 }
 
 header {
-    background: #007bff;
+    background: green;
     color: white;
     padding: 10px 0;
     text-align: center;
@@ -133,7 +137,7 @@ nav ul li a {
 
 button {
     padding: 10px 20px;
-    background: #28a745;
+    background: black;
     color: white;
     border: none;
     border-radius: 5px;
@@ -147,7 +151,7 @@ button {
 }
 
 .organization {
-    background: white;
+    background: whitesmoke;
     margin: 20px;
     padding: 15px;
     border-radius: 5px;
@@ -171,12 +175,12 @@ footer {
 <script>
 
 function accessOrganization(orgName) {
-    ('Accessing ' + orgName + '...');
+    alert('Accessing ' + orgName + '...');
     // Here , you can implement the logic to access the selected organization
 }
 
 document.getElementById('exploreButton').addEventListener('click', function() {
-    ('Exploring organizations...');
+   alert ('Exploring organizations...');
     // Here, you can implement the logic to explore organizations
 });
 </script>
