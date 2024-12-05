@@ -10,24 +10,21 @@
     <header style="color: antiquewhite">
         <h1>HOPE</h1>
         <marquee style="font-size: xx-large;">WELCOME TO HOPE</marquee>
-
-        <div class="container">
-            <div class="logo">
-                <img src="462585963_1467895320547756_3557671448933482452_n.jpg" width="150px"; height="150px";>
-                </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="organisation.html">Organisations</a></li>
+                <li><a href="donate.html">Donate</a></li>
             </ul>
+            <button class="donate-button" onclick="openDonationModal()">Donate Now</button>
         </nav>
     </header>
     <style>
     
     body {
-    background-image: url(wp2566029.jpg);
+    background-image: url(R.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -39,34 +36,39 @@
     <main>
         <section id="hero">
             <h2 style="color: warm white;">WELCOME TO HOPE</h2>
-            <p>Explore, engage, and access various organizations in one place.</p>
+            <p>
+
+                Hope is a unique platform designed to connect you with multiple charitable organizations during times of need. Whether you're seeking assistance, guidance, or community support, Hope makes it easy to find and access the resources you require to overcome challenges and build a brighter future. 
+            </p>
             <button id="exploreButton">Explore Now</button>
         </section>
 
         <section id="organizations">
-            <h2>Our Organizations</h2>
-            <li><a href="organisation.html">Organisations</a></li>
+            <h2 style="color: antiquewhite;">Our Organizations</h2>
             <div class="organization" onclick="accessOrganization('Org 1')">
+                <img src="IMG-20221025-WA0140_08132 (1).jpg"width="150px"height="150px">
                 <h3 style="color: black">Fred and Martie Soup Kitchen</h3>
-                <p></p>
-                Fred & Martie’s Soup Kitchen, a registered Public Benefit and Non-Profit Organisation, serves the underprivileged in Claremont, west of Johannesburg, South Africa. Our story began over four decades ago when our parents, Fred and Martie Hughes, recognized the community's needs and took action. Fred, having personally faced poverty, understood the hardships many encountered. In March 1981, when they relocated to Claremont, Johannesburg, they brought along not just their possessions but also a deep sense of empathy and a commitment to making a positive impact.
-                
-                
-            </div>
-            <div class="organization" onclick="accessOrganization('Org 2')">
-                <h3 style="color:black;">Kingdom Faith Outreach Ministry</h3>
                 <p>
-
-At Kingdom Faith Outreach Ministries, we are dedicated to spreading hope, love, and support to individuals and families in need. As a compassionate and faith-based organization, our mission is to transform lives through spiritual guidance, practical assistance, and community outreach.
-                </p>
+                Fred & Martie’s Soup Kitchen, a registered Public Benefit and Non-Profit Organisation, serves the underprivileged in Claremont, west of Johannesburg, South Africa. Our story began over four decades ago when our parents, Fred and Martie Hughes, recognized the community's needs and took action. Fred, having personally faced poverty, understood the hardships many encountered. In March 1981, when they relocated to Claremont, Johannesburg, they brought along not just their possessions but also a deep sense of empathy and a commitment to making a positive impact.</p>
             </div>
+
+            <div class="organization"onclick="accessOrganization('Org 2')">
+                <h2>Kingdom Faith Outreach Ministries</h2>
+                <img src="469166014_3930319393918834_4442746073337767904_n.jpg"height="150px"width="150px">
+                <p>
+            At Kingdom Faith Outreach Ministries, we are dedicated to spreading hope, love, and support to individuals and families in need. As a compassionate and faith-based organization, our mission is to transform lives through spiritual guidance, practical assistance, and community outreach.</p>
+            </div>
+                
+    
             <div class="organization" onclick="accessOrganization('Org 3')">
                 <h3 style="color: black">TTT Lewis Bereavement Services</h3>
+                <img src="302123051_176344964901411_4002674397636458348_n.jpg"width="150px"height="150px">
                 <p>
             At TTT Lewis Bereavement Services, we provide compassionate and comprehensive support to individuals and families during their time of loss. As a registered non-profit organization, our mission is to offer a comforting presence and practical assistance to help navigate the challenging journey of grief.</p>
             </div>
             <div class="organization" onclick="accessOrganization('Org 4')">
                 <h3 style="color: black;">Hotel Hope Ministries</h3>
+                <img src="IMG-20221025-WA0140_08132.jpg"width="150px"height="150px">
                 <p style="color: black;">
 
 Hotel Hope Ministries is a registered non-profit organization in South Africa, dedicated to ensuring that every child is raised in a safe, happy, and healthy environment, allowing them to grow into responsible and positive adults. While children are our primary focus, we adopt a holistic approach to addressing the issue of orphaned and abandoned children. We understand the importance of tackling the root causes of the problem, not just the symptoms. Therefore, we have initiatives aimed at supporting mothers and fathers, helping them care for themselves and their children.
@@ -77,8 +79,11 @@ Hotel Hope Ministries is a registered non-profit organization in South Africa, d
         <section id="about">
             <h2 style="color: antiquewhite">About Us</h2>
             <p style="color: antiquewhite">
-                Welcome to Hope, a unique platform connecting you to multiple charitable organizations, all in one place. Hope offers a seamless way to find and support the causes that matter to you. Let's make a positive impact together, one act of kindness at a time.
-            </p>
+                
+                Hope is a unique platform dedicated to connecting individuals and families with a network of charitable organizations, providing vital support in times of need. Our mission is to offer seamless access to essential resources, fostering resilience and empowerment within communities.
+Founded on the principles of compassion and unity, Hope strives to create a world where everyone can find the assistance they require to overcome challenges and build a brighter future. We believe in the power of collective effort and the importance of offering help and hope to those who are struggling.
+Let's make a positive impact together, one act of kindness at a time.
+                </p>
         </section>
 
         <section id="contact">
@@ -111,6 +116,7 @@ header {
 }
 
 nav ul {
+
     list-style: none;
     padding: 0;
 }
@@ -123,6 +129,20 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+}
+
+.donate-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.donate-button:hover {
+    background-color:black;
 }
 
 #hero {
@@ -156,7 +176,7 @@ button {
 }
 
 .organization {
-    background: whitesmoke;
+    background: white;
     margin: 20px;
     padding: 15px;
     border-radius: 5px;
